@@ -9,7 +9,7 @@ const entityData = {
 
   contact: {
     email: 'soporte@papershop.com',
-    phone: '+57 300 123 4567',
+    phone: '+57 313 399 0629',
     location: 'Colombia'
   },
 
@@ -23,8 +23,8 @@ const entityData = {
   ],
 
   links: [
-    { platform: 'Instagram', url: '#', icon: '📸' },
-    { platform: 'Facebook', url: '#', icon: '📘' },
+    { platform: 'Instagram', url: 'https://www.instagram.com/paper_shop_online/', icon: '📸' },
+    { platform: 'Facebook', url: 'https://www.facebook.com/profile.php?fb_profile_edit_entry_point=%7B%22click_point%22%3A%22edit_profile_button%22%2C%22feature%22%3A%22profile_header%22%7D&id=61579179402678&sk=about', icon: '📘' },
     { platform: 'Tienda Online', url: '#', icon: '🛒' }
   ],
 
@@ -156,7 +156,7 @@ let showingAllItems = false;
 const handleToggleItems = () => {
   showingAllItems = !showingAllItems;
   renderItems(showingAllItems);
-  toggleItemsBtn.textContent = showingAllItems ? 'Mostrar menos' : 'Mostrar más';
+  toggleItemsBtn.textContent = showingAllItems ? 'Show less' : 'Show More';
 };
 
 /* ================= Events ================= */
