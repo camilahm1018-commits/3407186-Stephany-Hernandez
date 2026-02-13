@@ -1,5 +1,5 @@
 /* ============================================
-   E-COMMERCE PAPELERÍA
+   PROYECTO SEMANA 01- E-COMMERCE PAPELERÍA
    ============================================ */
 
 const entityData = {
