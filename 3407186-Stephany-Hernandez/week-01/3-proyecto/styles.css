@@ -208,10 +208,7 @@ body {
   box-shadow: 0 4px 12px var(--shadow);
 }
 
-/* efecto cuando se presiona */
-.btn:active {
-  transform: scale(0.95);
-}
+
 
 .btn-secondary {
   background: linear-gradient(135deg, #6c63ff, #ff7a59);
@@ -285,3 +282,30 @@ body {
 }
 
 /* ==========================================*
+
+
+/* ============================================
+Toast Notification
+   ============================================ */
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--accent);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px var(--shadow);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  pointer-events: none;
+  font-weight: 600;
+  z-index: 2000;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}

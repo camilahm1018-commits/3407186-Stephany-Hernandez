@@ -1,8 +1,12 @@
 /* ============================================
-   PROYECTO SEMANA 1- E-COMMERCE PAPELERÍAgir
+import { Product } from './../../../../bc-javascript-es2023/bootcamp/week-12/2-practicas/ejercicio-03-modulos/starter/index';
+PROYECTO SEMANA 1- E-COMMERCE PAPELERÍA
    ============================================ */
 
-const entityData = {
+   // ============================================
+// TODO 1: Crear el objeto de datos de tu dominio
+// ============================================
+const ProductData = {
   name: 'PaperShop Online',
   description: 'Tienda virtual especializada en productos de papelería, útiles escolares y artículos de oficina.',
   identifier: 'ECOM-PS-2026',
@@ -36,10 +40,12 @@ const entityData = {
   }
 };
 
-/* ================= DOM ================= */
+// ============================================
+// TODO 2: Referencias a elementos del DOM
+// ============================================
 
-const entityName = document.getElementById('userName');
-const entityDescription = document.getElementById('userBio');
+const ProductName = document.getElementById('userName');
+const ProductDescription = document.getElementById('userBio');
 const itemsList = document.getElementById('skillsList');
 const statsContainer = document.getElementById('stats');
 const themeToggle = document.getElementById('themeToggle');
@@ -49,18 +55,22 @@ const socialContainer = document.getElementById('socialLinks');
 const toast = document.getElementById('toast');
 const toastMessage = document.getElementById('toastMessage');
 
-/* ================= Render Info ================= */
+// ============================================
+// TODO 3: Renderizar información básica
+// ============================================
 
 const renderBasicInfo = () => {
-  const { name, description } = entityData;
-  entityName.textContent = name;
-  entityDescription.textContent = description;
+  const { name, description } = ProductData;
+  ProductName.textContent = name;
+  ProductDescription.textContent = description;
 };
 
-/* ================= Render Items ================= */
+// ============================================
+// TODO 4: Renderizar lista de elementos
+// ============================================
 
 const renderItems = (showAll = false) => {
-  const { items } = entityData;
+  const { items } = ProductData;
   const itemsToShow = showAll ? items : items.slice(0, 4);
 
   const itemsHtml = itemsToShow.map(({ name, level }) => `
@@ -75,10 +85,12 @@ const renderItems = (showAll = false) => {
   itemsList.innerHTML = itemsHtml;
 };
 
-/* ================= Render Links ================= */
+// ============================================
+// TODO 5: Renderizar enlaces/referencias
+// ============================================
 
 const renderLinks = () => {
-  const { links } = entityData;
+  const { links } = ProductData;
 
   const linksHtml = links.map(({ platform, url, icon }) => `
     <a href="${url}" target="_blank" class="social-link">
@@ -89,10 +101,12 @@ const renderLinks = () => {
   socialContainer.innerHTML = linksHtml;
 };
 
-/* ================= Render Stats ================= */
+// ============================================
+// TODO 6: Calcular y renderizar estadísticas
+// ============================================
 
 const renderStats = () => {
-  const { stats } = entityData;
+  const { stats } = ProductData;
 
   const statsArray = [
     { label: 'Productos vendidos', value: stats.total },
@@ -111,7 +125,9 @@ const renderStats = () => {
   statsContainer.innerHTML = statsHtml;
 };
 
-/* ================= Theme ================= */
+// ============================================
+// TODO 7: Funcionalidad de cambio de tema
+// ============================================
 
 const toggleTheme = () => {
   const currentTheme = document.documentElement.dataset.theme;
@@ -125,10 +141,12 @@ const loadTheme = () => {
   document.documentElement.dataset.theme = 'light';
 };
 
-/* ================= Copy ================= */
+// ============================================
+// TODO 8: Funcionalidad de copiar información
+// ============================================
 
 const copyInfo = () => {
-  const { name, description, contact } = entityData;
+  const { name, description, contact } = ProductData;
 
   const text = `
 ${name}
@@ -137,7 +155,7 @@ Contacto: ${contact.email}
 `.trim();
 
   navigator.clipboard.writeText(text);
-  showToast('¡Información copiada!');
+  showToast('¡Información copiada al portapapeles!');
 };
 
 const showToast = message => {
@@ -149,7 +167,9 @@ const showToast = message => {
   }, 3000);
 };
 
-/* ================= Toggle Items ================= */
+// ============================================
+// TODO 9: Funcionalidad de mostrar/ocultar items
+// ============================================
 
 let showingAllItems = false;
 
@@ -159,13 +179,17 @@ const handleToggleItems = () => {
   toggleItemsBtn.textContent = showingAllItems ? 'Show less' : 'Show More';
 };
 
-/* ================= Events ================= */
+// ============================================
+// TODO 10: Event Listeners
+// ============================================
 
 themeToggle.addEventListener('click', toggleTheme);
 copyBtn.addEventListener('click', copyInfo);
 toggleItemsBtn.addEventListener('click', handleToggleItems);
 
-/* ================= Init ================= */
+// ============================================
+// TODO 11: Inicializar la aplicación
+// ============================================
 
 const init = () => {
   loadTheme();
@@ -179,14 +203,7 @@ const init = () => {
 init();
 
 
-document.getElementById("copyEmailBtn").addEventListener("click", function() {
-  const email = document.getElementById("userEmail").textContent;
-  navigator.clipboard.writeText(email);
-});
 
 
-const toggleBtn = document.getElementById("themeToggle");
 
-toggleBtn.addEventListener("click", () => {
-  document.body.toggleAttribute("data-theme", "dark");
-});
+
