@@ -1,5 +1,5 @@
 /* ============================================
-   CSS Variables for Theming (E-Commerce Papelería)
+CSS Variables for Theming (E-Commerce Papelería)
    ============================================ */
 :root {
   --bg-primary: #f4f6fb;
@@ -24,7 +24,7 @@
 }
 
 /* ============================================
-   Reset & Base Styles
+Reset & Base Styles
    ============================================ */
 * {
   margin: 0;
@@ -41,7 +41,7 @@ body {
 }
 
 /* ============================================
-   Container & Layout
+Container & Layout
    ============================================ */
 .container {
   max-width: 900px;
@@ -54,7 +54,7 @@ body {
 }
 
 /* ============================================
-   Theme Toggle Button
+Theme Toggle Button
    ============================================ */
 .theme-toggle {
   position: fixed;
@@ -80,7 +80,7 @@ body {
 }
 
 /* ============================================
-   Business Card (Estilo Tienda)
+Business Card (Estilo Tienda)
    ============================================ */
 .card {
   background: var(--bg-secondary);
@@ -97,7 +97,7 @@ body {
 }
 
 /* ============================================
-   Card Header (Gradiente Comercial)
+Card Header (Gradiente Comercial)
    ============================================ */
 .card-header {
   background: linear-gradient(135deg, #6c63ff 0%, #ff7a59 100%);
@@ -139,7 +139,7 @@ body {
 }
 
 /* ============================================
-   Card Sections
+Card Sections
    ============================================ */
 .card-section {
   padding: 1.5rem 2rem;
@@ -162,7 +162,7 @@ body {
 }
 
 /* ============================================
-   Skills (Ahora estilo categorías de tienda)
+Skills (Ahora estilo categorías de tienda)
    ============================================ */
 .skills-list {
   display: grid;
@@ -195,7 +195,7 @@ body {
 }
 
 /* ============================================
-   Buttons
+Buttons
    ============================================ */
 
 .btn {
@@ -237,7 +237,7 @@ body {
 
 
 /* ============================================
-   Social Links
+Social Links
    ============================================ */
 .social-link {
   display: inline-flex;
@@ -259,7 +259,7 @@ body {
 }
 
 /* ============================================
-   Statistics
+Statistics
    ============================================ */
 .stat-item {
   background: var(--bg-primary);
