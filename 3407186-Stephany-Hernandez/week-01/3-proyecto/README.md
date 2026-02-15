@@ -337,7 +337,7 @@ apellido-nombre-proyecto/
 - **Nombre**: [Stephany Camila Hernandez Morales]
 - **Fecha**: [14/02/2023]
 - **Dominio Asignado**: [E-commerce de productos de papelería]
-- **Entidad Principal**: [E-commerce y etail]
+- **Entidad Principal**: [E-commerce y retail]
 
 ## 🎯 Descripción
 [Tienda en línea que ofrece una amplia variedad de productos de papelería y suministros escolares y de oficina.]
