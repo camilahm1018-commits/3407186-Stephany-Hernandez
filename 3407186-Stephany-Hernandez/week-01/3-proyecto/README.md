@@ -340,7 +340,7 @@ apellido-nombre-proyecto/
 - **Entidad Principal**: [E-commerce y etail]
 
 ## 🎯 Descripción
-[Breve descripción de lo que muestra tu ficha]
+[Tienda en línea que ofrece una amplia variedad de productos de papelería y suministros escolares y de oficina.]
 
 ## 📚 Conceptos ES2023 Aplicados
 - [ ] Variables con let/const
