@@ -128,6 +128,8 @@ const renderStats = () => {
     </div>
   `).join('');
 
+  
+
   statsContainer.innerHTML = statsHtml;
 };
 
