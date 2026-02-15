@@ -21,9 +21,15 @@ const ProductData = {
     { name: 'Cuadernos', level: 95 },
     { name: 'Lápices', level: 90 },
     { name: 'Marcadores', level: 85 },
-    { name: 'Carpetas', level: 80 },
+    { name: 'Carpetas', level: 70 },
     { name: 'Agendas', level: 88 },
-    { name: 'Material artístico', level: 92 }
+    { name: 'Material artístico', level: 92 },
+    { name: 'Adhesivos', level: 75 },
+    { name: 'Cartucheras', level: 88 },
+    { name: 'Accesorios Tecnologicos', level: 78 },
+    { name: 'Papeles Creativos', level: 83 }
+    
+
   ],
 
   links: [
@@ -176,6 +182,7 @@ let showingAllItems = false;
 const handleToggleItems = () => {
   showingAllItems = !showingAllItems;
   renderItems(showingAllItems);
+  renderStats();
   toggleItemsBtn.textContent = showingAllItems ? 'Show less' : 'Show More';
 };
 
