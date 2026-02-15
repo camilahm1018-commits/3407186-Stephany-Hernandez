@@ -356,6 +356,12 @@ apellido-nombre-proyecto/
 ## 📸 Screenshots
 [Agregar capturas de pantalla]
 
+   
+   ![Ligth theme](screenshots/Ligth_theme.png)
+   ![Ligth theme](screenshots/Ligth_theme_2.png)
+   ![Dark theme](screenshots/dark-theme.png)
+   ![Dark theme](screenshots/Dark_theme_2.png)
+
 ## 🎯 Autoevaluación
 - Funcionalidad: [X]%
 - Código ES2023: [X]%
