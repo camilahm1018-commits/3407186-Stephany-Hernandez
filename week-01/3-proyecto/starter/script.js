@@ -67,10 +67,21 @@ const toastMessage = document.getElementById('toastMessage');
 // ============================================
 
 const renderBasicInfo = () => {
-  const { name, description } = ProductData;
-  ProductName.textContent = name;
+  const { name,
+    description,
+    identifier,
+    contact: {
+    email,phone,location}, } = ProductData;
+
+ProductName.textContent = name;
+  ProductTitle.textContent = `International Remittance Platform (${identifier})`;
+  ProductLocation.textContent = `📍 ${location}`;
   ProductDescription.textContent = description;
+
+  ProductEmail.textContent = email;
+  ProfuctPhone.textContent = phone;
 };
+
 
 // ============================================
 // TODO 4: Renderizar lista de elementos
