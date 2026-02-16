@@ -331,16 +331,16 @@ apellido-nombre-proyecto/
 ### README de Entrega
 
 ```markdown
-# Ficha de [Tu Dominio] - [Tu Nombre]
+# Ficha de [12] - [E-commerce de prductos de papelería]
 
 ## 📋 Información
-- **Nombre**: [Tu nombre completo]
-- **Fecha**: [DD/MM/YYYY]
-- **Dominio Asignado**: [Tu dominio]
-- **Entidad Principal**: [Qué representa tu ficha]
+- **Nombre**: [Stephany Camila Hernandez Morales]
+- **Fecha**: [14/02/2023]
+- **Dominio Asignado**: [E-commerce de productos de papelería]
+- **Entidad Principal**: [E-commerce y retail]
 
 ## 🎯 Descripción
-[Breve descripción de lo que muestra tu ficha]
+[Tienda en línea que ofrece una amplia variedad de productos de papelería y suministros escolares y de oficina.]
 
 ## 📚 Conceptos ES2023 Aplicados
 - [ ] Variables con let/const
@@ -355,6 +355,12 @@ apellido-nombre-proyecto/
 
 ## 📸 Screenshots
 [Agregar capturas de pantalla]
+
+   
+   ![Ligth theme](screenshots/Ligth_theme.png)
+   ![Ligth theme](screenshots/Ligth_theme_2.png)
+   ![Dark theme](screenshots/dark-theme.png)
+   ![Dark theme](screenshots/Dark_theme_2.png)
 
 ## 🎯 Autoevaluación
 - Funcionalidad: [X]%
@@ -377,7 +383,7 @@ apellido-nombre-proyecto/
 **P: ¿Puedo usar librerías externas?**
 R: No, este proyecto debe usar solo JavaScript ES2023 puro.
 
-**P: ¿Puedo cambiar el diseño CSS?**
+**P: ¿Puedo cambiar el diseño CSS?** retail
 R: Sí, puedes personalizar los estilos a tu gusto.
 
 **P: ¿Qué pasa si mi dominio no está en la lista de ejemplos?**
