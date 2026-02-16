@@ -51,6 +51,7 @@ const ProductData = {
 // ============================================
 
 const ProductName = document.getElementById('userName');
+const locationtName = document.getElementById('userLocation');
 const ProductDescription = document.getElementById('userBio');
 const itemsList = document.getElementById('skillsList');
 const statsContainer = document.getElementById('stats');
