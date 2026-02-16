@@ -10,6 +10,7 @@ const ProductData = {
   name: 'PaperShop Online',
   description: 'Tienda virtual especializada en productos de papelería, útiles escolares y artículos de oficina.',
   identifier: 'ECOM-PS-2026',
+  Title: 'Tienda Vrtual de Productos de Papeleria',
 
   contact: {
     email: 'soporte@papershop.com',
@@ -28,7 +29,6 @@ const ProductData = {
     { name: 'Cartucheras', level: 88 },
     { name: 'Accesorios Tecnologicos', level: 78 },
     { name: 'Papeles Creativos', level: 83 }
-    
 
   ],
 
@@ -51,8 +51,8 @@ const ProductData = {
 // ============================================
 
 const ProductName = document.getElementById('userName');
-const locationtName = document.getElementById('userLocation');
 const ProductDescription = document.getElementById('userBio');
+const ProductTitle =document.getElementById('userTitle');
 const itemsList = document.getElementById('skillsList');
 const statsContainer = document.getElementById('stats');
 const themeToggle = document.getElementById('themeToggle');
@@ -61,28 +61,28 @@ const toggleItemsBtn = document.getElementById('toggleSkills');
 const socialContainer = document.getElementById('socialLinks');
 const toast = document.getElementById('toast');
 const toastMessage = document.getElementById('toastMessage');
+const locationpoint = document.getElementById("userLocation")
+const Email = document.getElementById("userEmail")
+const Phone= document.getElementById("userPhone")
 
 // ============================================
 // TODO 3: Renderizar información básica
 // ============================================
 
 const renderBasicInfo = () => {
-  const { name,
+  const {
+    name,
     description,
-    identifier,
-    contact: {
-    email,phone,location}, } = ProductData;
-
-ProductName.textContent = name;
-  ProductTitle.textContent = `International Remittance Platform (${identifier})`;
-  ProductLocation.textContent = `📍 ${location}`;
+    Title,
+    contact:  {email, phone, location}
+  } = ProductData;
+  ProductName.textContent = name;
   ProductDescription.textContent = description;
-
-  ProductEmail.textContent = email;
-  ProfuctPhone.textContent = phone;
+  locationpoint.textContent = `📍 ${location}`;
+  Email.textContent = email;
+  Phone.textContent =phone;
+  ProductTitle.textContent =Title;
 };
-
-
 // ============================================
 // TODO 4: Renderizar lista de elementos
 // ============================================
