@@ -331,16 +331,16 @@ apellido-nombre-proyecto/
 ### README de Entrega
 
 ```markdown
-# Ficha de [Tu Dominio] - [Tu Nombre]
+# Ficha de [12] - [Stephany Camila Hernandez Morales]
 
 ## 📋 Información
-- **Nombre**: [Tu nombre completo]
-- **Fecha**: [DD/MM/YYYY]
-- **Dominio Asignado**: [Tu dominio]
-- **Entidad Principal**: [Qué representa tu ficha]
+- **Nombre**: [Stephany Camila Hernandez Morales]
+- **Fecha**: [14/02/2026]
+- **Dominio Asignado**: [E-commerce productos de papeleria]
+- **Entidad Principal**: [Productos de papeleria]
 
 ## 🎯 Descripción
-[Breve descripción de lo que muestra tu ficha]
+[Es un comercio digital especializado en productos escolares, papelería y accesorios para oficina. ]
 
 ## 📚 Conceptos ES2023 Aplicados
 - [ ] Variables con let/const
@@ -355,7 +355,10 @@ apellido-nombre-proyecto/
 
 ## 📸 Screenshots
 [Agregar capturas de pantalla]
-
+![Ligth theme](screenshots/Ligth_theme.png)
+![Ligth theme](screenshots/Ligth_theme_2.png)
+![Dark theme](screenshots/dark_theme.png)
+![Dark theme](screenshots/Dark_theme_2.png)
 ## 🎯 Autoevaluación
 - Funcionalidad: [X]%
 - Código ES2023: [X]%
