@@ -88,7 +88,7 @@ const createItem = (itemData = {}) => {
     id: Date.now(),
     name: itemData.name ?? '',
     description: itemData.description ?? '',
-    category: itemData.category ?? 'Útiles Escolares',
+    category: itemData.category ?? 'school',
     priority: itemData.priority ?? 'high',
     // Datos agregados de mi dominio
     price: Number(itemData.price) ?? 0,
@@ -113,9 +113,7 @@ const createItem = (itemData = {}) => {
 
 };
 
-// ============================================
-// TODO 4: CRUD - ACTUALIZAR ELEMENTO
-// ============================================
+
 
 // ============================================
 // TODO 4: CRUD - ACTUALIZAR ELEMENTO
@@ -141,6 +139,9 @@ const updateItem = (id, updates) => {
         }
       : item // si no coincide, lo deja igual
   );
+
+  // actualizar variable global
+  items = updatedItems;
 
   // guardamos en localStorage
   saveItems(updatedItems);
@@ -230,11 +231,17 @@ const filterByStatus = (itemsToFilter, status = 'all') => {
 
   if (status === 'all') return itemsToFilter;
 
+  // Disponibles → activos y con stock
   if (status === 'active')
-    return itemsToFilter.filter(item => item.active);
+    return itemsToFilter.filter(
+      item => item.active && Number(item.stock) > 0
+    );
 
+  // Agotados → stock 0 o desactivados
   if (status === 'inactive')
-    return itemsToFilter.filter(item => !item.active);
+    return itemsToFilter.filter(
+      item => !item.active || Number(item.stock) === 0
+    );
 
   return itemsToFilter;
 };
@@ -318,7 +325,6 @@ const applyFilters = (itemsToFilter, filters = {}) => {
 
   return result;
 };
-
 // ============================================
 // TODO 8: ESTADÍSTICAS
 // ============================================
@@ -338,18 +344,21 @@ const getStats = (itemsToAnalyze = []) => {
 
 
   // --------------------------------------------------
-  // 2️ PRODUCTOS ACTIVOS
-  // --------------------------------------------------
-  // filter() crea un nuevo array SOLO con productos activos
-  // luego length cuenta cuántos hay
-  const active = itemsToAnalyze.filter(item => item.active).length;
+// 2️ PRODUCTOS ACTIVOS
+// --------------------------------------------------
+// Activo = está activo Y tiene stock disponible
+    const active = itemsToAnalyze.filter(
+      item => item.active && Number(item.stock) > 0
+    ).length;
 
 
-  // --------------------------------------------------
-  // 3️ PRODUCTOS INACTIVOS
-  // --------------------------------------------------
-  // Se calcula restando los activos al total
-  const inactive = total - active;
+// --------------------------------------------------
+// 3️ PRODUCTOS INACTIVOS
+// --------------------------------------------------
+// Inactivo = stock en 0 o desactivado
+    const inactive = itemsToAnalyze.filter(
+      item => !item.active || Number(item.stock) === 0
+    ).length;
 
 
   // --------------------------------------------------
@@ -467,12 +476,13 @@ const renderItem = item => {
 
           <!-- Precio -->
           <span class="badge badge-price">
-            💲Precio:  $${price.toLocaleString()}
+            💲Precio: $${price.toLocaleString()}
           </span>
 
           <!-- Stock -->
+
           <span class="badge badge-stock ${stock === 0 ? 'out-stock' : ''}">
-            📦 Stock: ${stock}
+            📦 Stock: ${stock === 0 ? 'Agotado' : stock}
           </span>
 
         </div>
@@ -581,13 +591,25 @@ const handleFormSubmit = e => {
   const description = document.getElementById('item-description').value.trim();
   const category = document.getElementById('item-category').value;
   const priority = document.getElementById('item-priority').value;
-  //segun mi dominio
-  const price = Number(document.getElementById('item-price').value);
+
+  //segun mi dominio 
+  // PRICE
+  const priceInput = document.getElementById('item-price').value.trim();
+
+  // Quitar puntos (separador de miles) antes de convertir
+  const price = Number(priceInput.replace(/\./g, ''));
+
+  // Validar
+  if (isNaN(price) || price <= 0) {
+    alert('El precio debe ser un número mayor que 0');
+    return;
+  }
+ //STOCK
   const stock = Number(document.getElementById('item-stock').value);
 
   // TODO: Valida que el nombre no esté vacío
-    if (!name) {
-      alert('El nombre del producto es obligatorio');
+    if (isNaN(stock) || stock < 0) {
+      alert('El stock no puede ser negativo');
       return;
     }
 
@@ -740,9 +762,13 @@ const attachEventListeners = () => {
     .getElementById('filter-priority').addEventListener('change', handleFilterChange);
 
   // búsqueda en tiempo real
-  document
-    .getElementById('search-input').addEventListener('input', handleFilterChange);
 
+
+  // Botón limpiar productos inactivos
+
+  document
+    .getElementById('search-input')
+    .addEventListener('input', handleFilterChange);
 
   // Botón limpiar productos inactivos
   document
@@ -756,6 +782,16 @@ const attachEventListeners = () => {
       renderStats(getStats(items));
     });
 
+  // Formato de precio con miles mientras el usuario escribe
+  const priceInputField = document.getElementById('item-price');
+  priceInputField.addEventListener('input', e => {
+    let value = e.target.value.replace(/\D/g, ''); // quitar todo lo que no sea número
+    if (value) {
+      e.target.value = Number(value).toLocaleString('es-CO'); // formatear con miles
+    } else {
+      e.target.value = '';
+    }
+  }); 
 
   // EVENT DELEGATION (MUY IMPORTANTE)
   document
