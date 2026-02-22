@@ -1,320 +1,170 @@
-# 📦 Proyecto Semana 02: Gestor de Colección
+# 🛒 E-Commerce Papelería
 
-> **🎯 ÚNICO ENTREGABLE**: Este proyecto es el **único entregable obligatorio** para aprobar la semana.
+Aplicación web de gestión de productos escolares y de oficina. Permite crear, editar, eliminar y filtrar productos con persistencia en el navegador usando `localStorage`.
 
-## 🏛️ Política de Dominios Únicos
+## ¿De qué trata mi dominio?
 
-**Tu dominio fue asignado por el instructor al inicio del trimestre.** Este proyecto debe implementarse completamente dentro del contexto de tu dominio asignado.
-
-### ¿Por qué dominios únicos?
-
-- Previene copia entre compañeros
-- Fomenta implementaciones originales
-- Desarrolla capacidad de abstracción
-- Aplica conceptos generales a contextos específicos
+Mi dominio es una plataforma de **gestión de productos para una tienda de papelería**, es decir, una aplicación donde se pueden registrar, organizar y administrar artículos escolares y de oficina como cuadernos, lápices, marcadores, tijeras y accesorios de arte. Cada producto tiene un nombre, descripción, categoría, precio en pesos colombianos, stock disponible, nivel de prioridad de reposición y un estado activo o inactivo.
 
 ---
 
-## 🎯 Objetivos del Proyecto
+## 📸 Vista general
 
-Construir una aplicación completa de gestión de colección que consolide todos los conceptos aprendidos en Week-02:
+La app cuenta con un formulario de productos, filtros dinámicos, estadísticas en tiempo real y un listado interactivo de productos.
 
-- ✅ Spread & Rest operators
-- ✅ Default parameters
-- ✅ Array methods (map, filter, reduce, find, etc.)
-- ✅ Object enhancements
-- ✅ Manipulación del DOM
-- ✅ LocalStorage para persistencia
-- ✅ Inmutabilidad y programación funcional
+## Screenshots:
+
+![Pagina_principal](screenshots/Captura-1.png)
+![Pagina_principal](screenshots/Captura-2.png)
+![Pagina_principal](screenshots/Captura-3.png)
+![Pagina_principal](screenshots/Captura-4.png)
+
+(Capturas de las principales vistas y funcionalidades de la aplicación.)
+---
+
+## 🚀 Tecnologías utilizadas
+
+| Tecnología        | Uso                                        |
+| ----------------- | ------------------------------------------ |
+| HTML5             | Estructura semántica de la interfaz        |
+| CSS3              | Estilos, variables CSS y diseño responsivo |
+| JavaScript (ES6+) | Lógica, CRUD, filtros y manejo del DOM     |
+| LocalStorage      | Persistencia de datos en el navegador      |
 
 ---
 
-## 📋 Descripción
-
-Aplicación web para gestionar una colección de elementos de tu dominio asignado con las siguientes características:
-
-### Funcionalidades Principales
-
-1. **Crear elementos** con propiedades específicas de tu dominio
-2. **Listar elementos** con filtros (todos, activos, inactivos)
-3. **Editar elementos** existentes
-4. **Eliminar elementos**
-5. **Marcar como activo/inactivo** (o estado equivalente en tu dominio)
-6. **Filtrar** por categoría y prioridad/nivel
-7. **Buscar** elementos por texto
-8. **Estadísticas** (total, activos, inactivos, por categoría)
-9. **Persistencia** en LocalStorage
-
-### Características Técnicas
-
-- **Sin frameworks**: JavaScript puro (ES2023)
-- **Inmutabilidad**: Nunca mutar el estado directamente
-- **Array methods**: Uso intensivo de map, filter, reduce
-- **Spread/Rest**: Para copiar y actualizar objetos/arrays
-- **Modular**: Código organizado en funciones puras
-
----
-
-## 💡 Ejemplos de Adaptación por Dominio
-
-> **⚠️ IMPORTANTE**: Estos son ejemplos ilustrativos. Usa el dominio que te asignó tu instructor.
-
-| Concepto Genérico | Ejemplo: Planetario 🔭 | Ejemplo: Acuario 🐠 |
-|-------------------|------------------------|---------------------|
-| **Elemento** | Cuerpo celeste | Especie marina |
-| **Propiedades** | nombre, tipo, distancia, magnitud | nombre, tipo, tanque, cantidad |
-| **Categorías** | planeta, estrella, asteroide, cometa | pez, mamífero, invertebrado, anfibio |
-| **Estado activo** | Visible esta noche | En exhibición |
-| **Prioridad/Nivel** | Brillo (alta/media/baja) | Peligrosidad (alta/media/baja) |
-| **Estadísticas** | Por tipo, por visibilidad | Por tanque, por tipo |
-
----
-
-## 🏗️ Estructura del Proyecto
+## 📁 Estructura del proyecto
 
 ```
-3-proyecto/
-├── README.md           # Este archivo
-├── starter/
-│   ├── index.html      # HTML inicial
-│   ├── styles.css      # Estilos base
-│   └── script.js       # Código inicial con TODOs
-└── solution/
-    └── script.js       # Referencia (no copiar)
+proyecto/
+├── index.html          # Estructura principal de la app
+├── styles.css          # Estilos globales y diseño responsivo
+└── starter/
+    └── script.js       # Lógica completa de la aplicación
 ```
 
 ---
 
-## 📝 Modelo de Datos
+## ✨ Funcionalidades
 
-### Estructura Genérica del Elemento
+- **Crear productos** con nombre, descripción, categoría, prioridad, precio y stock.
+- **Editar productos** existentes desde el mismo formulario.
+- **Eliminar productos** con confirmación.
+- **Activar / desactivar** productos con un checkbox (toggle de estado).
+- **Filtrar** por estado (disponible / agotado), categoría y prioridad.
+- **Buscar** productos en tiempo real por nombre o descripción.
+- **Estadísticas** de totales, disponibles, agotados y conteo por categoría.
+- **Limpiar agotados** con un solo clic.
+- **Formato automático** de precio con separadores de miles (estilo colombiano).
+- **Persistencia** de datos con `localStorage` — los datos se mantienen al recargar.
 
-```javascript
-// Adapta este modelo a tu dominio
+---
+
+## 🗂️ Categorías disponibles
+
+
+| Categoría |Nombre| Emoji |
+|---|---|---|
+| school| Útiles Escolares | 🎒 |
+| office| Oficina | 📎 |
+| art| Arte y Dibujo | 🎨 |
+| notebooks| Cuadernos y Libretas | 📓 |
+| accessories| Accesorios | ✂️ |
+
+---
+
+## ⚡ Prioridades
+
+| Nivel | Color       |
+| ----- | ----------- |
+| Alta  | 🔴 Rojo     |
+| Media | 🟡 Amarillo |
+| Baja  | 🟢 Verde    |
+
+---
+## 🔄 Adaptación al dominio
+
+| Concepto Genérico |  Mi Dominio: E-commerce Papelería 🛒 |
+|-------------------|------------------------|
+| **Elemento** |  Producto de papelería |
+| **Propiedades** |  nombre, descripción, categoria, prioridad, precio, stock |
+| **Estado activo** | Disponible para venta |
+| **Estadísticas** |  Por categoría, disponibilidad y stock |
+
+### 💡 Propiedades específicas del dominio
+
+| Propiedad | Tipo | Descripción |
+|---|---|---|
+| `price` | `Number` | Precio en COP. Se ingresa con formato `10.000` y se almacena como número entero sin puntos. |
+| `stock` | `Number` | Unidades en inventario. Si llega a `0`, el producto se considera **agotado automáticamente**. |
+
+**Lógica de disponibilidad:** un producto es **disponible** solo si `active === true` AND `stock > 0`. Aunque esté activo, si el stock es `0` aparece como agotado.
+---
+
+
+## 🧠 Conceptos de JavaScript aplicados
+
+- **Spread operator** para copiar arrays y objetos sin mutarlos.
+- **Array methods**: `map`, `filter`, `reduce`, `find`.
+- **LocalStorage** con `JSON.stringify` / `JSON.parse`.
+- **Destructuring** de objetos y parámetros.
+- **Template literals** para generar HTML dinámico.
+- **Event delegation** para manejar eventos en listas dinámicas.
+- **Default parameters** en funciones.
+---
+
+### Diseño visual (`styles.css`)
+
+El diseño refleja una tienda de papelería moderna y colorida:
+
+- **Fondo:** Gradiente de azul a rosado a amarillo `(#8398f7 → #fd97e4 → #f8ec83)` que transmite energía y creatividad, coherente con un ambiente escolar.
+- **Color primario:** Azul suave `#8eaef3` para botones y badges principales.
+- **Color secundario:** Lila `#a175ee` que complementa la identidad visual.
+- **Tarjetas:** Fondo blanco con sombras suaves para destacar sobre el fondo degradado.
+- **Borde de prioridad:** El borde izquierdo de cada tarjeta cambia de color según la urgencia de reposición (`🔴 Alta`, `🟡 Media`, `🟢 Baja`).
+
+
+## 🛠️ Cómo ejecutar el proyecto
+
+1. Clona o descarga el repositorio.
+2. Abre el archivo `index.html` en tu navegador.
+3. ¡Listo! No se requiere instalación ni servidor.
+
+```bash
+# Opcionalmente, con Live Server en VS Code:
+# Click derecho sobre index.html → "Open with Live Server"
+```
+
+---
+
+## 📊 Modelo de datos
+
+Cada producto almacenado tiene la siguiente estructura:
+
+```js
 {
-  id: 1,                      // Número único (Date.now())
-  name: "...",                // String - nombre del elemento
-  description: "...",         // String (opcional)
-  active: true,               // Boolean - estado activo/inactivo
-  priority: "high",           // "low" | "medium" | "high"
-  category: "...",            // Categoría específica de tu dominio
-  createdAt: "2024-01-15",    // String (ISO Date)
-  updatedAt: null,            // String | null
-
-  // Propiedades específicas de tu dominio:
-  // Planetario: magnitude, distance, constellation
-  // Acuario: tankNumber, population, feedingSchedule
+  id: 1718000000000,         // Timestamp único (Date.now())
+  name: "Cuaderno Norma",    // Nombre del producto
+  description: "100 hojas",  // Descripción
+  category: "notebooks",     // Categoría
+  priority: "medium",        // Prioridad (low | medium | high)
+  price: 10000,              // Precio en COP
+  stock: 50,                 // Unidades disponibles
+  active: true,              // Estado del producto
+  createdAt: "2026-02-21T21:32:47.000Z",     // Fecha de creación (ISO)
+  updatedAt: null            // Fecha de última edición (ISO o null)
 }
 ```
 
----
 
-## 🔧 Funciones a Implementar
 
-### 1. Estado y Persistencia
+## 👨‍💻 Autor
 
-| Función | Descripción |
-|---------|-------------|
-| `loadItems()` | Carga elementos desde LocalStorage |
-| `saveItems(items)` | Guarda elementos en LocalStorage |
-| `getInitialState()` | Retorna estado inicial |
+Proyecto desarrollado como ejercicio de aprendizaje — **Semana 02: Gestor de Colección**.
 
-### 2. CRUD Básico
-
-| Función | Descripción |
-|---------|-------------|
-| `createItem(itemData)` | Crea nuevo elemento con spread operator |
-| `updateItem(id, updates)` | Actualiza elemento usando map |
-| `deleteItem(id)` | Elimina elemento usando filter |
-| `toggleItemActive(id)` | Alterna estado activo/inactivo |
-
-### 3. Filtros y Búsqueda
-
-| Función | Descripción |
-|---------|-------------|
-| `filterByStatus(items, status)` | Filtra por estado (all/active/inactive) |
-| `filterByCategory(items, category)` | Filtra por categoría |
-| `filterByPriority(items, priority)` | Filtra por prioridad |
-| `searchItems(items, query)` | Busca en nombre y descripción |
-| `applyFilters(items, filters)` | Aplica todos los filtros encadenados |
-
-### 4. Estadísticas
-
-| Función | Descripción |
-|---------|-------------|
-| `getStats(items)` | Calcula estadísticas usando reduce |
-| `getItemsByCategory(items)` | Agrupa por categoría |
-
-### 5. Renderizado
-
-| Función | Descripción |
-|---------|-------------|
-| `renderItems(items)` | Renderiza lista usando map + template literals |
-| `renderStats(stats)` | Renderiza estadísticas |
-| `renderItem(item)` | Renderiza elemento individual |
-
----
-
-## 🎨 Interfaz de Usuario
-
-### Secciones Requeridas
-
-1. **Header**: Título adaptado a tu dominio y estadísticas rápidas
-2. **Formulario**: Crear/editar elementos con campos de tu dominio
-3. **Filtros**: Por estado, categoría, prioridad + búsqueda
-4. **Lista**: Elementos renderizados con información relevante
-5. **Stats**: Resumen de estadísticas por categoría
-
-### Estados Visuales Sugeridos
-
-- Elementos inactivos: Opacidad reducida
-- Prioridades: Colores diferentes (rojo/amarillo/verde)
-- Categorías: Badges con emojis de tu dominio
-
----
-
-## ✅ Criterios de Evaluación
-
-### Funcionalidad (40 puntos)
-
-- [ ] Crear elementos con todos los campos (10pts)
-- [ ] Editar elementos existentes (8pts)
-- [ ] Eliminar elementos (5pts)
-- [ ] Marcar como activo/inactivo (5pts)
-- [ ] Filtros funcionales (7pts)
-- [ ] Búsqueda funcional (5pts)
-
-### Código (30 puntos)
-
-- [ ] Uso correcto de spread/rest (8pts)
-- [ ] Array methods apropiados (10pts)
-- [ ] Inmutabilidad mantenida (7pts)
-- [ ] Código limpio y organizado (5pts)
-
-### Persistencia y UI (30 puntos)
-
-- [ ] LocalStorage funcionando (10pts)
-- [ ] Estadísticas correctas (10pts)
-- [ ] Interfaz coherente con el dominio (10pts)
-
-**Total: 100 puntos**
-**Mínimo para aprobar: 70 puntos**
-
----
-
-## 🚀 Cómo Empezar
-
-### 1. Define tu Modelo de Datos
-
-Primero, adapta el modelo genérico a tu dominio:
-
-```javascript
-// EJEMPLO Planetario (NO es un dominio asignable)
-const celestialBody = {
-  id: Date.now(),
-  name: "Júpiter",
-  description: "El gigante gaseoso más grande del sistema solar",
-  active: true,           // Visible esta noche
-  priority: "high",       // Brillo: alto
-  category: "planet",     // Tipo: planeta
-  // Propiedades específicas:
-  magnitude: -2.5,
-  distance: "628 millones km",
-  constellation: "Piscis"
-};
-```
-
-### 2. Completa las Funciones
-
-Abre `starter/script.js` y completa las funciones marcadas con `// TODO:`.
-
-### 3. Orden Recomendado
-
-1. Definir estructura de datos de tu dominio
-2. Implementar `createItem()` y `renderItem()`
-3. Conectar el formulario
-4. Implementar `loadItems()` y `saveItems()`
-5. Añadir toggle activo/inactivo y eliminar
-6. Implementar filtros y búsqueda
-7. Calcular y mostrar estadísticas
-8. Añadir edición de elementos
-
----
-
-## 💡 Pistas y Consejos
-
-### Inmutabilidad
-
-```javascript
-// ❌ MAL: Mutar array directamente
-items.push(newItem);
-
-// ✅ BIEN: Crear nuevo array con spread
-const newItems = [...items, newItem];
-```
-
-### Actualizar Elemento
-
-```javascript
-// Usa map para actualizar sin mutar
-const updated = items.map(item =>
-  item.id === id ? { ...item, active: !item.active } : item
-);
-```
-
-### Eliminar Elemento
-
-```javascript
-// Usa filter para eliminar sin mutar
-const filtered = items.filter(item => item.id !== id);
-```
-
-### Estadísticas con Reduce
-
-```javascript
-// Contar por categoría
-const byCategory = items.reduce((acc, item) => {
-  acc[item.category] = (acc[item.category] ?? 0) + 1;
-  return acc;
-}, {});
-```
-
----
-
-## 🎓 Conceptos Aplicados
-
-| Concepto | Uso en el Proyecto |
-|----------|-------------------|
-| **Spread Operator** | Copiar arrays `[...items]`, copiar objetos `{ ...item }` |
-| **Rest Parameters** | Funciones con argumentos variables |
-| **Array.map()** | Transformar elementos para renderizar |
-| **Array.filter()** | Filtrar por estado, categoría, búsqueda |
-| **Array.reduce()** | Calcular estadísticas y agrupar |
-| **Array.find()** | Encontrar elemento por ID |
-| **Default Parameters** | `filterByStatus(items, status = 'all')` |
-| **Object Enhancements** | Property shorthand, computed properties |
-
----
-
-## 📚 Recursos
-
-- [MDN - LocalStorage](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage)
-- [MDN - Métodos de Array](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array)
-- [JavaScript.info - Métodos de Array](https://javascript.info/array-methods)
-
----
-
-## ⏱️ Tiempo Estimado
-
-- **Definir modelo de datos**: 20 minutos
-- **Implementación básica**: 1.5 horas
-- **Filtros y búsqueda**: 30 minutos
-- **Estadísticas**: 20 minutos
-- **Refinamiento y testing**: 20 minutos
-
-**Total: ~3 horas**
-
----
+Stephany Camila Hernández Morales- 3407186
+Proyecto Week-02 — JavaScript Moderno  
+Dominio: E-commerce de productos de papelería
 
 ## 📋 Entregables
 
