@@ -85,21 +85,21 @@ const createItem = (itemData = {}) => {
 
   // Crear el nuevo producto
   const newItem = {
+    ...itemData,
     id: Date.now(),
     name: itemData.name ?? '',
     description: itemData.description ?? '',
-    category: itemData.category ?? 'school',
-    priority: itemData.priority ?? 'high',
+    category: itemData.category || 'school',
+    priority: itemData.priority || 'high',
     // Datos agregados de mi dominio
-    price: Number(itemData.price) ?? 0,
-    stock: Number(itemData.stock) ?? 0,
+    price: Number(itemData.price) || 0,
+    stock: Number(itemData.stock) || 0,
     //
     active: true,
     createdAt: new Date().toISOString(),
     updatedAt: null,
 
-    // Spread operator (permite agregar más campos si existen)
-    ...itemData
+    
   };
 
   // Crear nuevo array sin mutar el original
